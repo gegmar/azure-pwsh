@@ -128,12 +128,12 @@ foreach ( $listName in $distributionlistAddresses )
         $contact = Get-MailContact -Identity $diff.InputObject
 
         if ( $diff.SideIndicator -eq '=>' ) {
-            "[$listName] Removing ${$diff.InputObject} from group ..."
+            "[$listName] Removing $( $diff.InputObject ) from group ..."
             Remove-DistributionGroupMember -Identity $listName -Member $contact.DistinguishedName
         }
     
         if ( $diff.SideIndicator -eq '<=' ) {
-            "[$listName] Adding ${$diff.InputObject} to group ..."
+            "[$listName] Adding $( $diff.InputObject ) to group ..."
             Add-DistributionGroupMember -Identity $listName -Member $contact.DistinguishedName
         }
     }
